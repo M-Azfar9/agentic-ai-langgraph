@@ -10,6 +10,9 @@ from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_core.tools import tool
 from dotenv import load_dotenv
+from langchain_core.tools import tool
+from dotenv import load_dotenv
+import asyncio
 import sqlite3
 import requests
 import os
@@ -20,6 +23,7 @@ load_dotenv()
 # 1. LLM
 # -------------------
 os.environ["MISTRAL_API_KEY"] = "hdl7dvGQzeEhwH4wgf8Vkj8ASAQzMS7I"  
+
 
 llm = ChatMistralAI(model="mistral-large-latest")  
 

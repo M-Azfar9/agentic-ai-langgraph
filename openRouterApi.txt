@@ -1,0 +1,3 @@
+open router api key
+
+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

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StreamFlix - Watch unlimited movies, TV shows, and more.">
+    <title>StreamFlix - Watch Anywhere, Anytime</title>
+    
+    <!-- Google Fonts: Roboto (Netflix Sans fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <!-- Logo (Placeholder) -->
+            <a href="#" class="logo">StreamFlix</a>
+            
+            <!-- Language Dropdown -->
+            <div class="language-selector">
+                <select name="language" id="language">
+                    <option value="en">🌐 English</option>
+                    <option value="es">🌐 Español</option>
+                    <option value="fr">🌐 Français</option>
+                </select>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span class="hamburger"></span>
+            </button>
+            
+            <!-- Sign In Button -->
+            <a href="#" class="sign-in-btn">Sign In</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Background Video (Placeholder) -->
+        <div class="hero-background">
+            <video autoplay loop muted playsinline class="background-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-watching-a-movie-on-a-projector-43819-large.mp4" type="video/mp4">
+                <!-- Fallback Image -->
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3" alt="Background" class="background-fallback">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1>Unlimited movies, TV shows, and more.</h1>
+            <p class="hero-subtitle">Watch anywhere. Cancel anytime.</p>
+            <p class="hero-subtext">Ready to watch? Enter your email to create or restart your membership.</p>
+            
+            <!-- Email Form -->
+            <form class="email-form" id="emailForm">
+                <div class="form-group">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Email address" 
+                        required
+                        aria-label="Email address"
+                    >
+                    <button type="submit" class="cta-button">Get Started &rsaquo;</button>
+                </div>
+                <p class="form-error" id="formError" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <!-- Feature 1: Enjoy on your TV -->
+        <div class="feature-card">
+            <div class="feature-text">
+                <h2>Enjoy on your TV.</h2>
+                <p>Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+            </div>
+            <div class="feature-visual">
+                <img 
+                    src="https://images.unsplash.com/photo-1593359677879-a4bb92f828d1?ixlib=rb-4.0.3" 
+                    alt="TV with movie playing" 
+                    loading="lazy"
+                >
+            </div>
+        </div>
+
+        <!-- Feature 2: Download and watch offline -->
+        <div class="feature-card reverse">
+            <div class="feature-text">
+                <h2>Download your shows to watch offline.</h2>
+                <p>Save your favorites easily and always have something to watch.</p>
+            </div>
+            <div class="feature-visual">
+                <img 
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3" 
+                    alt="Mobile device with downloaded shows" 
+                    loading="lazy"
+                >
+            </div>
+        </div>
+
+        <!-- Feature 3: Watch anywhere -->
+        <div class="feature-card">
+            <div class="feature-text">
+                <h2>Watch anywhere.</h2>
+                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.</p>
+            </div>
+            <div class="feature-visual">
+                <img 
+                    src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3" 
+                    alt="Devices showing streaming content" 
+                    loading="lazy"
+                >
+            </div>
+        </div>
+
+        <!-- Feature 4: Create profiles -->
+        <div class="feature-card reverse">
+            <div class="feature-text">
+                <h2>Create profiles for kids.</h2>
+                <p>Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</p>
+            </div>
+            <div class="feature-visual">
+                <img 
+                    src="https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?ixlib=rb-4.0.3" 
+                    alt="Kids profiles on a tablet" 
+                    loading="lazy"
+                >
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                    What is StreamFlix?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" id="faq-answer-1" aria-hidden="true">
+                    <p>StreamFlix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.</p>
+                    <p>You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                    How much does StreamFlix cost?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
+                    <p>Watch StreamFlix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from $8.99 to $17.99 a month. No extra costs, no contracts.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                    Where can I watch?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
+                    <p>Watch anywhere, anytime. Sign in with your StreamFlix account to watch instantly on the web at streamflix.com from your personal computer or on any internet-connected device that offers the StreamFlix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                    How do I cancel?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
+                    <p>StreamFlix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+                    What can I watch on StreamFlix?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" id="faq-answer-5" aria-hidden="true">
+                    <p>StreamFlix has an extensive library of feature films, documentaries, TV shows, anime, original award-winning StreamFlix series, and more. Watch as much as you want, anytime you want.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
+                    Is StreamFlix good for kids?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" id="faq-answer-6" aria-hidden="true">
+                    <p>The StreamFlix Kids experience is included in your membership to give parents control while letting kids enjoy family-friendly TV shows and movies in their own space.</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="faq-cta">Ready to watch? Enter your email to create or restart your membership.</p>
+        
+        <!-- Email Form (Repeated) -->
+        <form class="email-form" id="emailFormFaq">
+            <div class="form-group">
+                <input 
+                    type="email" 
+                    id="email-faq" 
+                    name="email" 
+                    placeholder="Email address" 
+                    required
+                    aria-label="Email address"
+                >
+                <button type="submit" class="cta-button">Get Started &rsaquo;</button>
+            </div>
+            <p class="form-error" id="formErrorFaq" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Speed Test</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Cookie Preferences</a></li>
+                        <li><a href="#">Legal Notices</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Account</a></li>
+                        <li><a href="#">Ways to Watch</a></li>
+                        <li><a href="#">Corporate Information</a></li>
+                        <li><a href="#">Only on StreamFlix</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Media Center</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Language Selector (Footer) -->
+            <div class="footer-language">
+                <select name="language" id="footer-language">
+                    <option value="en">🌐 English</option>
+                    <option value="es">🌐 Español</option>
+                    <option value="fr">🌐 Français</option>
+                </select>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

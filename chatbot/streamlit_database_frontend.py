@@ -113,16 +113,40 @@ if user_input:
     #     {"role": "assistant", "content": ai_message}
     # )
     with st.chat_message("assistant"):
-        def ai_only_stream():
-            for message, metadata in chatbot.stream(
-                {'messages':[HumanMessage(content=user_input)]}, 
-                config=CONFIG,
-                stream_mode='messages'
-            ):
-                if isinstance(message, AIMessage):
-                    yield message.content
+        # Create a status container to show tool usage and progress
+        status_container = st.status("🤖 Thinking...", expanded=True)
         
-        ai_message = st.write_stream(ai_only_stream())
+        def response_generator():
+            # Stream messages and metadata from the chatbot
+            for msg, metadata in chatbot.stream(
+                {"messages": [HumanMessage(content=user_input)]},
+                config=CONFIG,
+                stream_mode="messages",
+            ):
+                # Update status based on which node is currently running
+                node = metadata.get("langgraph_node")
+                if node == "tools":
+                    status_container.update(label="🛠️ Executing tools...", state="running")
+                elif node == "chat_node":
+                    status_container.update(label="🧠 Thinking...", state="running")
+
+                # If the message contains tool calls, display them in the status container
+                if hasattr(msg, "tool_calls") and msg.tool_calls:
+                    for tc in msg.tool_calls:
+                        if tc['name']: # Only show if name is present (sometimes chunks are empty)
+                            status_container.write(f"**Using tool:** `{tc['name']}`")
+                
+                # Yield content for st.write_stream if it's an AI message
+                if isinstance(msg, AIMessage) and msg.content:
+                    yield msg.content
+            
+            # Mark the status as complete once the stream ends
+            status_container.update(label="✅ Complete", state="complete", expanded=False)
+
+        # Use st.write_stream to handle the streaming content
+        ai_message = st.write_stream(response_generator())
+        
+        # Save the final message to history
         st.session_state.message_history.append(
-        {"role": "assistant", "content": ai_message}
+            {"role": "assistant", "content": ai_message}
         )
